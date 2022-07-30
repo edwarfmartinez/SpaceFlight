@@ -13,6 +13,14 @@
 		4E068A742891809200615B09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E068A732891809200615B09 /* Preview Assets.xcassets */; };
 		4E068A7F2891809300615B09 /* SpaceFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068A7E2891809300615B09 /* SpaceFlightTests.swift */; };
 		4E068A8A2891809300615B09 /* SpaceFlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068A892891809300615B09 /* SpaceFlightUITests.swift */; };
+		4E068AA02891897200615B09 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068A9F2891897200615B09 /* NetworkManager.swift */; };
+		4E068AA8289189C000615B09 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068AA7289189C000615B09 /* Constants.swift */; };
+		4E068AB028918B9500615B09 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068AAF28918B9500615B09 /* PostData.swift */; };
+		4E068AB528918F9D00615B09 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068AB428918F9D00615B09 /* DetailView.swift */; };
+		4E068ABA28918FF500615B09 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E068AB928918FF400615B09 /* WebView.swift */; };
+		4ED9122D28942B4F0022F99D /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9122C28942B4F0022F99D /* ArticlesView.swift */; };
+		4ED91232289434560022F99D /* BlogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED91231289434560022F99D /* BlogsView.swift */; };
+		4ED9124328948F110022F99D /* NasaReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9124228948F110022F99D /* NasaReportsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		4E068A852891809300615B09 /* SpaceFlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceFlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E068A892891809300615B09 /* SpaceFlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightUITests.swift; sourceTree = "<group>"; };
 		4E068A8B2891809300615B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E068A9F2891897200615B09 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4E068AA7289189C000615B09 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4E068AAF28918B9500615B09 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		4E068AB428918F9D00615B09 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		4E068AB928918FF400615B09 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		4ED9122C28942B4F0022F99D /* ArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesView.swift; sourceTree = "<group>"; };
+		4ED91231289434560022F99D /* BlogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsView.swift; sourceTree = "<group>"; };
+		4ED9124228948F110022F99D /* NasaReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaReportsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +111,10 @@
 		4E068A6B2891808E00615B09 /* SpaceFlight */ = {
 			isa = PBXGroup;
 			children = (
+				4E068AA7289189C000615B09 /* Constants.swift */,
+				4E068A9E2891895700615B09 /* Models */,
 				4E068A6C2891808E00615B09 /* SpaceFlightApp.swift */,
-				4E068A6E2891808E00615B09 /* ContentView.swift */,
+				4E068A9A2891882700615B09 /* Views */,
 				4E068A702891809200615B09 /* Assets.xcassets */,
 				4E068A752891809200615B09 /* Info.plist */,
 				4E068A722891809200615B09 /* Preview Content */,
@@ -128,6 +146,28 @@
 				4E068A8B2891809300615B09 /* Info.plist */,
 			);
 			path = SpaceFlightUITests;
+			sourceTree = "<group>";
+		};
+		4E068A9A2891882700615B09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E068A6E2891808E00615B09 /* ContentView.swift */,
+				4ED9122C28942B4F0022F99D /* ArticlesView.swift */,
+				4ED91231289434560022F99D /* BlogsView.swift */,
+				4ED9124228948F110022F99D /* NasaReportsView.swift */,
+				4E068AB428918F9D00615B09 /* DetailView.swift */,
+				4E068AB928918FF400615B09 /* WebView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4E068A9E2891895700615B09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E068A9F2891897200615B09 /* NetworkManager.swift */,
+				4E068AAF28918B9500615B09 /* PostData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E068AB028918B9500615B09 /* PostData.swift in Sources */,
+				4ED9122D28942B4F0022F99D /* ArticlesView.swift in Sources */,
+				4E068AB528918F9D00615B09 /* DetailView.swift in Sources */,
+				4E068AA02891897200615B09 /* NetworkManager.swift in Sources */,
 				4E068A6F2891808E00615B09 /* ContentView.swift in Sources */,
 				4E068A6D2891808E00615B09 /* SpaceFlightApp.swift in Sources */,
+				4E068AA8289189C000615B09 /* Constants.swift in Sources */,
+				4E068ABA28918FF500615B09 /* WebView.swift in Sources */,
+				4ED91232289434560022F99D /* BlogsView.swift in Sources */,
+				4ED9124328948F110022F99D /* NasaReportsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
