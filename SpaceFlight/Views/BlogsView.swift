@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Combine
+
 
 struct BlogsView: View {
     @ObservedObject var networkManager = NetworkManager()

@@ -6,43 +6,59 @@
 //
 
 import SwiftUI
+import Combine
+
 
 struct ArticlesView: View {
     @ObservedObject var networkManager = NetworkManager()
-    @State var startIndex = 0
-   
+    
+    
     var body: some View {
+        ZStack{
             NavigationView {
                 List(networkManager.fields) { field in
                     var scrollIndicator = networkManager.fields[K.regsPerPage - 2].id
-                    //print(networkManager.isLoading)
-
-                    NavigationLink(destination: DetailView(url: field.url)) {
+                    NavigationLink(destination: ArticlesDetailView(field: field)) {
                         HStack {
-                            Text(String(field.id))
+                            AsyncImage(
+                                url: URL(string: field.imageURL)!,
+                               placeholder: {
+                                Text("Loading ...") },
+                               image: { Image(uiImage: $0).resizable() }
+                            )
+                            .frame(width: 150, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             Text(field.title)
                         }
                     }
                     .onAppear {
-                        //Fetch data if scroll reaches view's end
+                        //Fetch data if scroll reaches view's end (Endless scroll))
                         scrollIndicator = networkManager.fields[networkManager.fields.count - 2].id
                         print("\(field.id) - \(scrollIndicator)")
                         if field.objectId == scrollIndicator {
-                            startIndex += K.regsPerPage
-                            networkManager.fetchData(start: startIndex, urlPath: K.url.pathArticles)
+                            networkManager.startIndex += K.regsPerPage
+                           
+                            networkManager.fetchData(start: networkManager.startIndex, urlPath: K.url.pathArticles)
                         }
                     }
                 }.navigationBarTitle(K.tabs.titleArticles)
             }
+            if networkManager.isLoading{
+                LoadingView()
+            }
+        }
     }
     
     init() {
-        networkManager.fetchData(start: startIndex, urlPath: K.url.pathArticles)
+                networkManager.fetchData(start: networkManager.startIndex, urlPath: K.url.pathArticles)
         }
 }
+
+
 
 struct ArticlesView_Previews: PreviewProvider {
     static var previews: some View {
         ArticlesView()
     }
 }
+
+

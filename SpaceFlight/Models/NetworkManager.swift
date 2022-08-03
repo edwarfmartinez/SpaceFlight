@@ -10,9 +10,11 @@ import Foundation
 
 class NetworkManager: ObservableObject {
     
-    @Published var fields = Fields()
-    @Published private var _isLoading: Bool = false
     
+    @Published var fields = Fields()
+    @Published var startIndex: Int = 0
+    @Published private var _isLoading: Bool = false
+   
     func fetchData(start: Int, urlPath: String) {
         print("getting", start)
         _isLoading = true
@@ -36,6 +38,8 @@ class NetworkManager: ObservableObject {
                                 //self.fields = results
                                 self.fields.append(contentsOf: results)
                                 //sleep(2)
+                                self._isLoading = false
+
                             }
                             
                         } catch {
@@ -46,9 +50,7 @@ class NetworkManager: ObservableObject {
                 }
             }
             task.resume()
-            
         }
-        _isLoading = false
 
     }
     
@@ -56,3 +58,5 @@ class NetworkManager: ObservableObject {
             get { return _isLoading}
         }
 }
+
+
