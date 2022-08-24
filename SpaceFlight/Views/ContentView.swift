@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    //@StateObject var networkManager = NetworkManager()
-
-    //@ObservedObject var networkManager = NetworkManager()
-    //@State var startIndex = 0
-    
     var body: some View {
-        TabView {
+            TabView {
             ArticlesView().tabItem {
-                Label("Articles", systemImage: "list.dash")
+                Label(K.tabs.titleArticles, systemImage: K.tabs.imageArticles)
             }
-            
             BlogsView().tabItem {
-                Label("Blogs", systemImage: "list.dash")
+                Label(K.tabs.titleBlogs, systemImage: K.tabs.imageBlogs)
             }
-            
             NasaReportsView().tabItem {
-                Label("Nasa Reports", systemImage: "list.dash")
+                Label(K.tabs.titleNasaReports, systemImage: K.tabs.imageNasaReports)
             }
-        }
+        }.accentColor(.white)
+    }
+    init() {
+        UITabBar.appearance().barTintColor = UIColor(K.Colors.brandDarkBlue)
+       //UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().unselectedItemTintColor = UIColor(K.Colors.brandLightPurple)
+        
+        
     }
 }
 
@@ -36,3 +36,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+

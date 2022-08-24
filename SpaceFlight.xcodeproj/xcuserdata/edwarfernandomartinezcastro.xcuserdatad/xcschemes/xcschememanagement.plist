@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SpaceFlightUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4E068A682891808E00615B09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E068A792891809300615B09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E068A842891809300615B09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

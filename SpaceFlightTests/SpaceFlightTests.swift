@@ -10,24 +10,40 @@ import XCTest
 
 class SpaceFlightTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var networkManager = NetworkManager()
+    
+    func testArticlesRead() throws {
+        
+        apiCall(start: 1, urlPath: K.url.pathArticles)
+        XCTAssertEqual(networkManager.fieldsArticles.count, K.regsPerPage, "One page read")
+        
+        apiCall(start: 8, urlPath: K.url.pathArticles)
+        XCTAssertEqual(networkManager.fieldsArticles.count, K.regsPerPage*2, "Two pages read")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+   
+    func testBlogsRead() throws {
+        
+        apiCall(start: 1, urlPath: K.url.pathBlogs)
+        XCTAssertEqual(networkManager.fieldsBlogs.count, K.regsPerPage, "One page read")
+        
+        apiCall(start: 8, urlPath: K.url.pathBlogs)
+        XCTAssertEqual(networkManager.fieldsBlogs.count, K.regsPerPage*2, "Two pages read")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testNasaReportsRead() throws {
+        
+        apiCall(start: 1, urlPath: K.url.pathNasaReports)
+        XCTAssertEqual(networkManager.fieldsNasaReports.count, K.regsPerPage, "One page read")
+        
+        apiCall(start: 8, urlPath: K.url.pathNasaReports)
+        XCTAssertEqual(networkManager.fieldsNasaReports.count, K.regsPerPage*2, "Two pages read")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func apiCall(start: Int, urlPath: String){
+        networkManager.fetchData(start: start, urlPath: urlPath)
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: urlPath)], timeout: 5.0)
     }
-
+    
 }
+       
+      

@@ -17,17 +17,13 @@ struct Field: Codable, Identifiable {
     let id: Int
     let title: String
     let url: String
-    let imageURL: String
-    let newsSite, summary, publishedAt, updatedAt: String
-    //let featured: Bool
-    //let launches: [Launch]
-    //let events: [JSONAny]
+    var imageURL, publishedAt: String
+    let newsSite, summary,  updatedAt: String
 
     enum CodingKeys: String, CodingKey {
         case id, title, url
         case imageURL = "imageUrl"
-        case newsSite, summary, publishedAt, updatedAt //, featured
-             //, launches, events
+        case newsSite, summary, publishedAt, updatedAt 
     }
 }
 

@@ -9,39 +9,23 @@ import SwiftUI
 
 struct NasaReportsView: View {
     @ObservedObject var networkManager = NetworkManager()
-    @State var startIndex = 0
-   
-    var body: some View {
-            NavigationView {
-                List(networkManager.fields) { field in
-                    var scrollIndicator = networkManager.fields[K.regsPerPage - 2].id
-                    //print(networkManager.isLoading)
-
-                    NavigationLink(destination: DetailView(url: field.url)) {
-                        HStack {
-                            Text(String(field.id))
-                            Text(field.title)
-                        }
-                    }
-                    .onAppear {
-                        //Fetch data if scroll reaches view's end
-                        scrollIndicator = networkManager.fields[networkManager.fields.count - 2].id
-                        print("\(field.id) - \(scrollIndicator)")
-                        if field.objectId == scrollIndicator {
-                            startIndex += K.regsPerPage
-                            networkManager.fetchData(start: startIndex, urlPath: K.url.pathNasa)
-                        }
-                    }
-                }.navigationBarTitle(K.tabs.titleNasaReports)
-            }
-   
-    }
-
-    init() {
-        networkManager.fetchData(start: startIndex, urlPath: K.url.pathNasa)
-        }
-        
     
+    var body: some View {
+        ZStack{
+            ListTemplate(
+                fields: networkManager.fieldsNasaReports,
+                networkManager: networkManager,
+                navigationBarTitle: K.tabs.titleNasaReports,
+                urlPath: K.url.pathNasaReports)
+            if networkManager.isLoading{
+                LoadingView()
+            }
+        }
+    }
+    
+    init() {
+        networkManager.fetchData(start: networkManager.startIndex, urlPath: K.url.pathNasaReports)
+    }
 }
 
 struct NasaReportsView_Previews: PreviewProvider {
