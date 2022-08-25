@@ -5,7 +5,7 @@ MacOS & iOS app. Get the latest space flight news: international news, the most 
 Concepts:
 
 * SwiftUI
-* Catalyst project
+* Catalyst Project
 * Observable Object
 * Web Kit
 * Pagination
