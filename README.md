@@ -1,6 +1,6 @@
 # SpaceFlight
 
-MacOS & iOS app. Get the latest space flight news: international news, the most relevant blogs and the daily report from NASA.
+macOS & iOS app. Get the latest space flight news: international news, the most relevant blogs and the daily report from NASA.
 
 Concepts:
 
